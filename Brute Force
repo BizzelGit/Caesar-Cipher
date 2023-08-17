@@ -1,0 +1,29 @@
+# Gegebene verschlüsselte Nachricht
+brute_force_message = "vhfinmxkl atox kxgwxkxw tee hy maxlx hew vbiaxkl tl hulhexmx. px'ee atox mh kxteer lmxi ni hnk ztfx by px ptgm mh dxxi hnk fxlltzxl ltyx."
+
+# Funktion zur Caesar-Verschlüsselung
+def caesar_encode(message, offsetcounter):
+    # Das Caesar-Verschlüsselungsverfahren verwendet ein Alphabet.
+    alphabet = "abcdefghijklmnopqrstuvwxyz"
+
+    # Hier wird die verschlüsselte Nachricht gespeichert.
+    translated_message = ""
+
+    # Schleife durch jeden Buchstaben im gegebenen Nachrichtentext.
+    for charakter in message:
+        if charakter in alphabet:
+            # Wenn der Buchstabe im Alphabet enthalten ist, wird sein Index gefunden.
+            charakter_value = alphabet.find(charakter)
+            # Die Verschiebung wird durch den Wert offsetcounter vorgenommen und das modifizierte Zeichen dem Ergebnis hinzugefügt.
+            translated_message += alphabet[(charakter_value - offsetcounter) % 26]
+        else:
+            # Wenn der Buchstabe nicht im Alphabet ist, wird er direkt zum Ergebnis hinzugefügt.
+            translated_message += charakter
+
+    return translated_message
+
+# Brute-Force-Angriff auf die verschlüsselte Nachricht
+for i in range(1, 26):
+    print("Offset: {}".format(i))
+    # Jede Verschiebung wird angewendet und das Ergebnis ausgegeben.
+    print(caesar_encode(brute_force_message, i))
