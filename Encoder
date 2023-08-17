@@ -1,0 +1,26 @@
+def caesar_encode(message, offsetcounter):
+    # Das Caesar-Verschlüsselungsverfahren verwendet ein Alphabet.
+    alphabet = "abcdefghijklmnopqrstuvwxyz"
+
+    # Hier wird die verschlüsselte Nachricht gespeichert.
+    translated_message = ""
+
+    # Schleife durch jeden Buchstaben im gegebenen Nachrichtentext.
+    for charakter in message:
+        if charakter in alphabet:
+            # Wenn der Buchstabe im Alphabet enthalten ist, wird sein Index gefunden.
+            charakter_value = alphabet.find(charakter)
+            # Die Verschiebung wird vom Index abgezogen und das modifizierte Zeichen dem Ergebnis hinzugefügt.
+            translated_message += alphabet[(charakter_value - offsetcounter) % 26]
+        else:
+            # Wenn der Buchstabe nicht im Alphabet ist, wird er direkt zum Ergebnis hinzugefügt.
+            translated_message += charakter
+
+    # Die verschlüsselte Nachricht wird ausgegeben.
+    print(translated_message)
+Dieses Skript stellt eine Funktion caesar_encode dar, die eine Caesar-Verschlüsselung durchführt. Es verwendet das gegebene Alphabet, um jeden Buchstaben im gegebenen Nachrichtentext zu verarbeiten und zu verschlüsseln. Die Verschiebung wird durch den Wert offsetcounter vorgenommen, der vom Index des Buchstabens im Alphabet subtrahiert wird. Das Ergebnis der Verschlüsselung wird in der Variable translated_message gespeichert und am Ende ausgegeben.
+
+
+
+
+
