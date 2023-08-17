@@ -1,0 +1,24 @@
+def caesar_decode(message, offsetcounter):
+    # Definiere das Alphabet
+    alphabet = "abcdefghijklmnopqrstuvwxyz"
+
+    # Initialisiere die übersetzte Nachricht
+    translated_message = ""
+    
+    # Setze den Standardwert für den Versatz
+    offsetcount = 10
+    
+    # Durchlaufe jeden Buchstaben im Nachrichtentext
+    for charakter in message:
+        if charakter in alphabet:
+            # Ermittle den Wert des Buchstabens im Alphabet
+            charakter_value = alphabet.find(charakter)
+            
+            # Füge den verschobenen Buchstaben zur übersetzten Nachricht hinzu
+            translated_message += alphabet[(charakter_value + offsetcount) % 26]
+        else:
+            # Füge das Zeichen unverändert zur übersetzten Nachricht hinzu (z.B. Leerzeichen oder Sonderzeichen)
+            translated_message += charakter
+    
+    # Gib die übersetzte Nachricht aus
+    print(translated_message)
